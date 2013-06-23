@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>	
+</head>
+<body>
+<form name = "contactform" action="" method = "post" id="orderform" onsubmit="return validateform()">
+	<fieldset>
+		<label for="name">Username</label>
+			<input name ="fname" type="text" placeholder="Enter Your Full Name"/><p id="test"></p><br>
+		<label for="password">Password</label>
+			<input name="password" type="password" placeholder="Enter Your Password" /><p id="ptest"></p><br>
+		<input id="submit" type="submit" value="Submit"/>
+	</fieldset>		
+</form>
+		<script>
+	
+	function validateform()
+	{	
+		var name = document.forms["contactform"]["fname"].value;
+		var password = document.forms["contactform"]["password"].value;
+		validatename(name);
+		validatepassword(password);
+		return false;
+		function validatepassword()
+		{	
+			
+			if (password ==""|| password==null)
+			{
+				document.getElementById("ptest").innerHTML = "this field is empty";
+			}
+			else if (password.length<8)
+			{
+				document.getElementById("ptest").innerHTML= "Password must be 8 character long";
+			}
+			else
+			{	
+				
+			}
+		}
+		function validatename()
+		{	
+			var namestr = /[^\w|\s]|\d/g;
+			if (name ==""|| name==null)
+			{
+				document.getElementById("test").innerHTML = "this field is empty";
+			}
+			else if (namestr.test(name)==true)
+			{
+				document.getElementById("test").innerHTML= "Do not Use Special character";
+			}
+			else
+			{	
+				
+			}
+		}
+	}
+	</script>
+</body>
+</html>
